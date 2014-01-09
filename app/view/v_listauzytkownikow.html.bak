@@ -1,0 +1,96 @@
+<h3>v_listauzytkownikow</h3>
+
+    <!-- uzytkownicy >> -->
+    <div ng-include="'view/tabelki/uzytkownicy.html'"></div>
+    <!-- <fieldset><legend>uzytkownicy</legend>
+        <table>
+            <tr>
+                <th>index</th>
+                <th>id</th>
+                <th>login</th>
+                <th>nazwisko</th>
+                <th>imie</th>
+                <th>stanowisko</th>
+                <th>uwagi</th>
+                <th>grupa_id</th>
+                <th>akcje</th>
+            </tr>
+            <tr ng-repeat="x in uzytkownicy | orderBy:u.nazwisko:u.imie">
+                <td>{{$index}}</td>
+                <td>{{x.id}}</td>
+                <td>{{x.login}}</td>
+                <td>{{x.nazwisko}}</td>
+                <td>{{x.imie}}</td>
+                <td>{{x.stanowisko}}</td>
+                <td>{{x.uwagi}}</td>
+                <td>{{x.grupa_id}}</td>
+                <td>
+                    <a href="#/edcjauztkownika/{{x.id}}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a ng-click="delete(x.id)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-floppy-remove"></span></a>
+                </td>
+            </tr>
+        </table>
+    </fieldset> -->
+    <!-- uzytkownicy << -->
+
+    <!-- nawigacja >> -->
+    <div class="well well-sm">
+        <button ng-click="togglePanelDU()" type="button" class="btn btn-default btn-xs">{{(panel.dodajUzytkownika) ? 'Ukryj panel użytkownika':'Dodaj użykownika...'}}</button>
+    </div>
+    <!-- nawigacja << -->
+
+
+    <!-- dodaj użytkownika >> -->
+    <fieldset ng-show="panel.dodajUzytkownika">
+        <legend>Dodaj użytkownika</legend>
+        <table on-keyup="handleKeypress($key)">
+            <tr>
+                <td>Imię:</td>
+                <td><input type="text" placeholder="?" ng-model="uzytkownik.imie" ng-keyup="keyPress()"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko:</td>
+                <td><input type="text" placeholder="?" ng-model="uzytkownik.nazwisko"></td>
+            </tr>
+            <tr>
+                <td>Login:</td>
+                <td><input type="text" placeholder="?" ng-model="uzytkownik.login"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-default" ng-click="dodajUzytkownika()">Dodaj</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <!-- dodaj użytkownika << -->
+
+    <!-- DEV: show all Factory-error-messages -->
+    <div ng-show="_error" class="alert alert-danger">{{_error}}</div>
+
+
+
+
+<!--
+   STUFF
+-->
+<hr>
+STUFF
+<hr>
+
+<div class="alert alert-info">Ta formatka już działa (automatycznie) - widać?</div>
+
+<div ng-controller="MyCtrl">
+    <h3>detect key in controller</h3>
+    <input on-keyup="handleKeypress($key)">
+    <br />Key Log: {{keylog}}
+</div>
+
+
+
+<span id="ahh" mh-button data-icon="gryph">Nie klikaj w to</span>
+
+
+<!--
+<div mh-bum>bum???</div>-->
+<mh-replacer>---</mh-replacer>

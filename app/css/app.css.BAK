@@ -1,0 +1,92 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.parzysta{background: #ACC99D;}
+.nieparzysta{background: #e0ffff;}
+
+
+/*
+Nadpisanie CSS z Bootstrap
+*/
+html {
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 15px;
+}
+body{
+    font-size: 11px;
+    margin: 5px;
+    background: #FFF;
+    border: solid 1px lightblue;
+}
+table {
+    max-width: 100%;
+    background-color: #d3d3d3;
+}
+td {
+    padding: 1px 2px;
+}
+fieldset {
+    padding: 4px;
+    margin: 7px 4px;
+    border: 1px solid #C0C0C0;
+}
+legend {
+    display: block;
+    width: inherit;
+    padding: 0 7px;
+    margin-bottom: 0px;
+    line-height: inherit;
+    color: #185DD6;
+    /*border: 1px solid #185DD6;*/
+    background: #FCF7C2;
+    font-size: 1em;
+}
+tr[ng-repeat]:hover {
+    background: #F1F7E1;
+    cursor: default;
+}
+tr>th{
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #42A9C9;
+    color: #FFF;
+    border-bottom: #FFF694 1px solid;
+}
+tr:last-child{
+    border-bottom: 1px solid #706A22;
+}
+.btn-xs {
+    padding: 0px 3px;
+}
+.glyphicon {
+    margin-right: 4px;
+}

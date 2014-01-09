@@ -1,0 +1,156 @@
+<div class="alert alert-info"><h3>Todolist</h3></div>
+
+<div ng-controller="todoCtrl">
+
+
+
+    <!-- radiobuttons-static: qq -->
+    <div class="row well">
+        <fieldset>
+            <legend>Filtruj</legend>
+            <div ng-init="qq.f1 = qq.f1||''">
+                <input type="radio" ng-model="qq.f1" name="qq" value="" ng-selected="">wszystkie<br/>
+                <input type="radio" ng-model="qq.f1" name="qq" value="2">zamkniete<br/>
+                <input type="radio" ng-model="qq.f1" name="qq" value="1">otwarte<br/>
+            </div>
+        </fieldset>
+
+
+
+
+        <!-- lista -->
+
+        <table>
+            <tr>
+                <th>nr</th>
+                <th>id</th>
+                <th>nazwa</th>
+                <th>f1</th>
+                <th>f2</th>
+                <th>status</th>
+                <th>flaga</th>
+                <th>opcje</th>
+            </tr>
+            <tr ng-repeat="u in zadania | filter:qq:strict" ng-class="">
+                <td>{{$index}}</td>
+                <td>{{u.id}}</td>
+                <td>{{u.nazwa}}</td>
+                <td>{{u.f1}}</td>
+                <td>{{u.f2}}</td>
+                <td>{{getF1(u.f1)}}</td>
+                <td>{{getF2(u.f2)}}</td>
+                <td>
+                    <button ng-click="edytujZadanie(u)">Edytuj</button>
+                    <button ng-click="usunZadanie(u)">Usuń</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+<!-- dev preview
+<div class="well">{{zadania}}</div>-->
+
+
+    <!-- panel -->
+    <div class="well row">
+        <form name="form1" >
+
+            <!-- DODAJ -->
+            <!--<div ng-hide="akt">
+                <div class="row">
+                    <div>Nowe zadanie</div>
+                </div>
+                &lt;!&ndash; input: nazwa2 &ndash;&gt;
+                <div class="row">
+                    <label for="nazwa2">nazwa:</label>
+                    <input type="text" name="nazwa2" id="nazwa2" required placeholder="Uzupełnij" ng-model="nazwa2">
+                    <span class="label label-danger" ng-show="form1.nazwa2.$error.required">Wymagany parametr!</span>
+
+                    &lt;!&ndash; nav &ndash;&gt;
+                    <button ng-show="akt" ng-click="reset()">Anuluj</button>
+                    <input type="button"
+                            ng-click="dodajZadanie(nazwa2)"
+                            ng-disabled="!nazwa2">Dodaj</button>
+                </div>
+            </div>-->
+
+
+
+            <div ng-hide="akt">
+                <div class="row">
+                    <div>Nowe zadanie</div>
+                </div>
+                <!-- input: nazwa2 -->
+                <div class="row">
+
+                    <input type="text"  ng-model="nazwa2">
+
+
+                    <!-- nav -->
+                    <button ng-show="akt" ng-click="reset()">Anuluj</button>
+                    <button
+                           ng-click="dodajZadanie(nazwa2)"
+                           ng-disabled="!nazwa2">Dodaj</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- EDYTUJ -->
+            <div class="row">
+                <div ng-show="akt">
+                    <!-- id -->
+                    <div>
+                        <div>Edycja zadania</div>
+                        <input type="hidden" name="id"  ng-model="id" size="3">
+                    </div>
+                    <!-- input: nazwa -->
+                    <div>
+                        <label for="nazwa">nazwa:</label>
+                        <input type="text" name="nazwa" id="nazwa" required placeholder="Uzupełnij" ng-model="nazwa">
+                        <span class="label label-danger" ng-show="form1.nazwa.$error.required">Wymagany parametr!</span>
+                    </div>
+
+                    <!-- listbox: zamknijotworz -->
+                    <div>
+                        <label for="zamknijotworz">zamknijotworz</label>
+                        <select id="zamknijotworz" ng-model="zamknijotworz"
+                                ng-disabled="!akt"
+
+                                ng-options="t.value as t.label for t in listazamknijotworz"></select>
+                    </div>
+                    <!-- listbox: powod -->
+                    <div ng-show="zamknijotworz==2">
+                        <label for="powod">powod</label>
+                        <select id="powod" ng-model="powod"
+                                ng-options="t.value as t.label for t in listapowod"></select>
+                    </div>
+                    <!-- nav -->
+                    <div class="row">
+                        <button ng-show="akt" ng-click="reset()">Anuluj</button>
+                        <button ng-click="zapiszZadanie(id,nazwa,zamknijotworz,powod)"
+                                ng-disabled="!moznaDodac()">Zapisz</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div ng-class="well">{{raw}}</div>
+
+
+</div><!-- ctrl -->
+
+
