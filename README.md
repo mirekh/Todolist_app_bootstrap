@@ -1,4 +1,4 @@
-Todolist_app_bootstrap
+Todolist app bootstrap
 ======================
 
-Simple todo app using AngularJS and Bootstrap
+Simple todo app using AngularJS and Bootstrap.
