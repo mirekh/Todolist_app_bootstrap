@@ -20,7 +20,7 @@
 
         <!-- lista -->
 
-        <table>
+        <table class="example-animate-container">
             <tr>
                 <th>nr</th>
                 <th>id</th>
@@ -31,7 +31,7 @@
                 <th>flaga</th>
                 <th>opcje</th>
             </tr>
-            <tr ng-repeat="u in zadania | filter:qq:strict" ng-class="">
+            <tr ng-repeat="u in zadania | filter:qq:strict"  class="animate-repeat">
                 <td>{{$index}}</td>
                 <td>{{u.id}}</td>
                 <td>{{u.nazwa}}</td>
@@ -59,7 +59,7 @@
 
         <form name="form1" novalidate>
             <!-- DODAJ -->
-            <div ng-hide="akt">
+            <div ng-hide="akt" class="check-element animate-show">
                 <div class="row">
                     <div>Nowe zadanie</div>
                 </div>
@@ -82,7 +82,7 @@
         <form name="form2" novalidate>
             <!-- EDYTUJ -->
             <div class="row">
-                <div ng-show="akt">
+                <div ng-show="akt" class="check-element animate-show">
                     <!-- id -->
                     <div>
                         <div>Edycja zadania</div>

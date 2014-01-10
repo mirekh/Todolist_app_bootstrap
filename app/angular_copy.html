@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="firstCtrl">
+    <label>imie:</label>
+    <input type="text" ng-model="imie" placeholder="podaj imie">
+    <label>nazw:</label>
+    <input type="text" ng-model="nazwisko" placeholder="podaj nazwisko">
+
+    <button ng-click="kopiujDoWyniku()">Kopiuj</button>
+
+    <input type="text" ng-model="wynik" placeholder="wynik">
+
+
+
+</div>
+</body>
+</html>
